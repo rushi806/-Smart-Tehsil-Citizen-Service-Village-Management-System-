@@ -54,6 +54,7 @@ python -m uvicorn app.main:app --reload --port 8000
 ```
 - API Docs: `http://localhost:8000/docs`
 - Redoc: `http://localhost:8000/redoc`
+- Frontend Application: http://localhost:5173
 
 ### 2. Frontend Setup
 ```bash
