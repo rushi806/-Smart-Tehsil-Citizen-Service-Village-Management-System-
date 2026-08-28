@@ -35,9 +35,6 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="demo-banner">
-        ⚠️ SMART TEHSIL PORTAL — DEMO SYSTEM | All government data presented is for demonstration purposes.
-      </div>
       <nav className="navbar">
         <div className="container navbar-inner">
           <Link to="/" className="navbar-brand">
@@ -45,8 +42,7 @@ export default function Navbar() {
               <Building2Icon />
             </div>
             <div className="navbar-title">
-              <h1>Smart Tehsil Portal</h1>
-              <span>Citizen Service & Village Management</span>
+              <h1>Tehsil Portal</h1>
             </div>
           </Link>
 
@@ -66,7 +62,7 @@ export default function Navbar() {
           </div>
 
           <div className="navbar-actions">
-            <Link to="/search" className="btn btn-sm btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>
+            <Link to="/search" className="btn btn-sm btn-accent">
               <Search size={16} /> Search
             </Link>
 
@@ -81,7 +77,7 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <Link to="/login" className="btn btn-sm btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.4)' }}>
+                <Link to="/login" className="btn btn-sm btn-accent">
                   Login
                 </Link>
                 <Link to="/register" className="btn btn-sm btn-accent">
