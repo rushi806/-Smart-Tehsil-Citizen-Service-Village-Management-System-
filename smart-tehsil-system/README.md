@@ -1,7 +1,6 @@
 # 🏛️ Smart Tehsil Citizen Service & Village Management System
 
 A full-stack, government-grade digital platform for Tehsil office operations, citizen certificate applications, village directory, interactive Leaflet maps, queue management, and rule-based AI guidance.
-- http://localhost:5173
 
 ## 🌟 Key Features
 
