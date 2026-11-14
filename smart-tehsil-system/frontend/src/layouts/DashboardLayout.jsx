@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { Bell, Home, Search, User } from 'lucide-react';
 
 export default function DashboardLayout({ allowedRoles }) {
-  const { user, isAuthenticated, loading } = useAuth();
+  const { user, isAuthenticated, loading, logout } = useAuth();
 
   if (loading) {
     return (
@@ -23,6 +23,15 @@ export default function DashboardLayout({ allowedRoles }) {
     return <Navigate to="/" replace />;
   }
 
+  const getDashboardPath = () => {
+    switch (user.role) {
+      case 'admin': return '/admin/dashboard';
+      case 'officer': return '/officer/dashboard';
+      case 'staff': return '/staff/dashboard';
+      default: return '/citizen/dashboard';
+    }
+  };
+
   return (
     <div className="dashboard-wrapper">
       <Sidebar />
@@ -38,8 +47,10 @@ export default function DashboardLayout({ allowedRoles }) {
             <Link to="/" className="btn btn-sm btn-secondary" title="View Public Home">
               <Home size={16} /> Portal Home
             </Link>
-            <div style={{ fontSize: '0.875rem', textAlign: 'right' }}>
-              <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{user.full_name}</div>
+            <div style={{ flex: 1, minWidth: 0, textAlign: 'right' }}>
+              <div style={{ fontWeight: '600', color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {user.full_name}
+              </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--primary-600)', textTransform: 'capitalize' }}>
                 {user.role} Account
               </div>

@@ -58,48 +58,65 @@ export default function Sidebar() {
   else if (role === 'staff') links = staffLinks;
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <Link to="/" style={{ color: '#fff', textDecoration: 'none', display: 'block' }}>
-          <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--accent-400)', fontWeight: '700' }}>
-            {role.toUpperCase()} PORTAL
-          </div>
-          <div style={{ fontSize: '1.1rem', fontWeight: '700', marginTop: '0.2rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-            {user.full_name}
-          </div>
-        </Link>
-      </div>
+    <>
+      {/* Mobile overlay */}
+      <div className={`mobile-sidebar-overlay ${location.pathname !== '/' ? 'open' : ''}`} onClick={() => {}} />
 
-      <nav className="sidebar-nav">
-        <div className="sidebar-section-label">Navigation</div>
-        {links.map((link) => {
-          const Icon = link.icon;
-          const active = location.pathname === link.path;
-          return (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`sidebar-link ${active ? 'active' : ''}`}
-            >
-              <Icon size={18} />
-              <span style={{ flex: 1 }}>{link.label}</span>
-              {active && <ChevronRight size={14} />}
-            </Link>
-          );
-        })}
+      <aside className="sidebar">
+        <div className="sidebar-header">
+          <Link to="/" style={{ color: '#fff', textDecoration: 'none', display: 'block' }}>
+            <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--accent-400)', fontWeight: '700' }}>
+              {role.toUpperCase()} PORTAL
+            </div>
+            <div style={{ fontSize: '1.1rem', fontWeight: '700', marginTop: '0.2rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+              {user.full_name}
+            </div>
+          </Link>
+        </div>
 
-        <div className="sidebar-section-label" style={{ marginTop: '1.5rem' }}>Public Links</div>
-        <Link to="/services" className="sidebar-link"><FileText size={18} /> Services Directory</Link>
-        <Link to="/villages" className="sidebar-link"><MapPin size={18} /> Village Map</Link>
-        <Link to="/ai-assistant" className="sidebar-link"><HelpCircle size={18} /> AI Assistant</Link>
-      </nav>
+        <nav className="sidebar-nav">
+          <div className="sidebar-section-label">Navigation</div>
+          {links.map((link) => {
+            const Icon = link.icon;
+            const active = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`sidebar-link ${active ? 'active' : ''}`}
+                onClick={() => {}}
+              >
+                {Icon && <Icon size={18} />}
+                <span style={{ flex: 1 }}>{link.label}</span>
+                {active && <ChevronRight size={14} />}
+              </Link>
+            );
+          })}
 
-      <div style={{ padding: '1rem 0.75rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-        <button onClick={logout} className="sidebar-link w-full" style={{ background: 'rgba(220,38,38,0.2)', color: '#fca5a5', border: 'none', cursor: 'pointer' }}>
-          <LogOut size={18} />
-          <span>Logout Account</span>
-        </button>
-      </div>
-    </aside>
+          <div className="sidebar-section-label" style={{ marginTop: '1.5rem' }}>Public Links</div>
+          <Link to="/services" className="sidebar-link" onClick={() => {}}><FileText size={18} /> <span>Services Directory</span></Link>
+          <Link to="/villages" className="sidebar-link" onClick={() => {}}><MapPin size={18} /> <span>Village Map</span></Link>
+          <Link to="/ai-assistant" className="sidebar-link" onClick={() => {}}><HelpCircle size={18} /> <span>AI Assistant</span></Link>
+        </nav>
+
+        <div style={{ padding: '1rem 0.75rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <button onClick={logout} className="sidebar-link w-full" style={{ background: 'rgba(220,38,38,0.2)', color: '#fca5a5', border: 'none', cursor: 'pointer' }}>
+            <LogOut size={18} />
+            <span>Logout Account</span>
+          </button>
+        </div>
+      </aside>
+    </>
+  );
+}
+
+function Building2Icon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+      <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </svg>
   );
 }
