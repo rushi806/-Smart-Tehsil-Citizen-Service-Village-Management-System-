@@ -33,6 +33,4 @@ The homepage features **13 professional sections** following all specified phase
 - Description with professional government-themed visual
 - Apply for Services and Track Application buttons
 - Smart Search Bar
-
-### 4. Quick Citizen Services
-- 7 service cards: Income Certificate, Caste Certificate, Domicile Certificate,
+ 
