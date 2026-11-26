@@ -155,4 +155,4 @@ This project is developed for educational and academic purposes.
   <strong>Smart Tehsil – Towards Digital Governance 🚀</strong>
   <br/>
   <i>Empowering Citizens Through Technology</i>
-</p>
+</p> 
