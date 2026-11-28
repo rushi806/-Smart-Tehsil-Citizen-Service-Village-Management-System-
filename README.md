@@ -128,7 +128,7 @@ Add your project screenshots here.
 - Online Application Payments
 - AI-Based Citizen Support
 - Advanced Analytics Dashboard
-- Mobile Application Integration
+- Mobile Application Integration 
  
 🌟 Benefits
 
